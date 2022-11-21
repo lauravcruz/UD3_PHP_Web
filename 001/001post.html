@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script defer src="js/bootstrap.bundle.js"></script>
+    <title>001 Post</title>
+  </head>
+  <body>
+    <form class="row g-3 needs-validation" action="001server.php" method="POST">
+      <div class="col-md-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-4">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellido"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
+  </body>
+</html>

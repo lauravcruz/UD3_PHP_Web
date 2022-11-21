@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script defer src="js/bootstrap.bundle.js"></script>
+    <title>004 Subida</title>
+  </head>
+
+  <body>
+    <!--004subida.html/.php: Crea un formulario que permita subir un archivo al servidor. 
+Además del fichero, debe pedir en el mismo formulario dos campos numéricos que 
+soliciten la anchura y la altura. Comprueba que tanto el fichero como los datos llegan 
+correctamente.-->
+
+    <form class="container-fluid d-grid g-3" action="subida.php" method="GET">
+      <div class="row">
+        <div class="form-outline col-3">
+          <label class="form-label" for="typeNumber">Altura</label>
+          <input
+            type="number"
+            id="altura"
+            name="altura"
+            class="form-control"
+          />
+        </div>
+        <div class="form-outline col-3">
+          <label class="form-label" for="typeNumber">Anchura</label>
+          <input
+            type="number"
+            id="anchura"
+            name="anchura"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
