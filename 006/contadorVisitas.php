@@ -20,7 +20,7 @@ declare(strict_types=1); ?>
   permitir que el usuario reinicialice su contador de visitas.*/
 
   /*Primero comprobamos que el usuario no haya dado a resetear. Si le ha dado, establecemos 0*/
-  if ($_GET["resetear"]) {
+  if (isset($_GET["resetear"])) {
     $_COOKIE['accesos'] = 0;
   }
 
@@ -36,8 +36,7 @@ declare(strict_types=1); ?>
 
   echo "<h3 class ='display-3'>Has visitado la página: $accesos veces</h3>";
   ?>
-  //TODO: igual hay otra manera mejor
-  <a class="link-primary" href="contadorVisitas.php?resetear">Recargar</a><br>
+  <a class="link-primary" href="contadorVisitas.php">Recargar</a><br>
   <!--para resetear, pasamos por GET la variable resetear-->
   <a class="link-warning" href="contadorVisitas.php?resetear=true">Reiniciar cookies</a>
 </body>

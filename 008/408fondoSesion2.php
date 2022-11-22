@@ -3,7 +3,6 @@
 declare(strict_types=1);
 /*Recuperamos la sesión y el color*/
 session_start();
-$ej8 = $_SESSION["ej8"];
 $color = $_SESSION['color'];
 ?>
 

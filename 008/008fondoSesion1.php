@@ -3,15 +3,13 @@
 declare(strict_types=1);
 /*Iniciamos la sesión y le guardamos el color que haya recibido por formulario, igual que la cookie*/
 session_start();
-$_SESSION["ej8"] = "ej8";
+
 
 if (isset($_GET['vaciar'])) {
   //Destruimos la sesión y creamos una nueva. Llamo igual para poder seguir reutilziando el siguiente archivo
   session_destroy();
   unset($_SESSION['color']);
-
   session_start();
-  $_SESSION["ej8"] = "ej8";
 }
 
 if (isset($_POST['color'])) {
