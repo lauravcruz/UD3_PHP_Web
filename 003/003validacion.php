@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/bootstrap.css" />
-  <script defer src="js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <script defer src="../js/bootstrap.bundle.js"></script>
   <title>003 Validación</title>
 </head>
 
@@ -20,11 +20,13 @@
   comportamiento. Tip: Investiga el uso de la función filter_var.*/
 
   /*Establecemos primero las validaciones: 
-  Si metemos por URL un dato que no es válido, saltará el mensaje arriba. Si es válido, lo mostrará*/
+  Si metemos por URL un dato que no es válido, saltará el mensaje arriba de qué campo da error
+  Si es válido, mostrará los datos*/
 
   $aficionesValidas = ["deporte", "musica", "cine", "videojuegos"];
   $menusValidos = ["pasta", "carne", "pescado", "ensalada"];
 
+  /*Una vez comprobemos que no están vacíos, hacemos la validaciones*/
   if (!empty($_GET['nombreCompleto']) && !empty($_GET['email']) && !empty($_GET['URL']) && !empty($_GET['sexo']) && !empty($_GET['convivientes']) && !empty($_GET['aficiones']) && !empty($_GET['menu'])) {
     // Aquí se incluye el código a ejecutar cuando los datos son correctos 
     if (isset($_GET["nombreCompleto"])) {
@@ -79,7 +81,8 @@
 
     if (isset($_GET["aficiones"])) {
       $aficiones = $_GET["aficiones"];
-
+      //Para los select y checkboxs, comprobaremos que tienen un valor válido (por si lo meten por url)
+      //Comprobamos si está en el array que hemos creado con los valores disponibles
       foreach ($aficiones as $aficion) {
         if (!(in_array($aficion, $aficionesValidas))) {
           echo "$aficion no es una afición válida<br>";
@@ -100,7 +103,7 @@
       }
     }
   } else {
-    // Generamos el formulario
+    //Generamos formulario
     $nombreCompleto = $_GET['nombreCompleto'] ?? "";
     $email = $_GET['email'] ?? "";
     $url = $_GET['URL'] ?? "";
@@ -112,7 +115,7 @@
   ?>
 
   <!--Volvemos a imprimir el formulario del anterior ejercicio, pero añadiendo required a los inputs-->
-
+  <!--En cada input le vamos a dar el value que el usuario metió antes de enviar el formulario y que diera error-->
   <form class="container-fluid d-grid g-3" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
     <div class="row">
       <div class="col-6">
@@ -134,11 +137,11 @@
     <div class="row d-flex align-items-center">
       <div class="col-6">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="sexo" id="sexo_hombre" value="hombre" />
+          <input class="form-check-input" type="radio" name="sexo" id="sexo_hombre" value="hombre" <?php if ($sexo == "hombre") echo 'checked="checked"'; ?> />
           <label class="form-check-label" for="hombre"> Hombre </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="sexo" id="sexo_mujer" value="mujer" />
+          <input class="form-check-input" type="radio" name="sexo" id="sexo_mujer" value="mujer" <?php if ($sexo == "mujer") echo 'checked="checked"'; ?> />
           <label class="form-check-label" for="mujer"> Mujer </label>
         </div>
       </div>
